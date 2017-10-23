@@ -1,0 +1,11 @@
+{
+  "name": "zedpack",
+  "version": "1.0.0",
+  "description": "A front-end development utility. It takes as input an .html file, a .css file and a .js file and combines them into one html file for output.",
+  "main": "zedpack.js",
+  "author": "Patrick Stockwell",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
