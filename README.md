@@ -8,9 +8,11 @@ If the output flag is not used, the result is passed to stdout
 
 ### Usage examples
 
-zedpack --css ./style.css --js ./javascript/script.js --html ./index.html --output compiled.html
-zedpack --js ./script.js --html ./index.html 
-zedpack --html ./index.html --output ./build/app.html --js ./app.js 
+`zedpack --css ./style.css --js ./javascript/script.js --html ./index.html --output compiled.html`
+
+`zedpack --js ./script.js --html ./index.html` 
+
+`zedpack --html ./index.html --output ./build/app.html --js ./app.js` 
 
 ### Bugs
 
@@ -25,7 +27,9 @@ stockwellpatrick@gmail.com
 ### Getting Started
 
 This project uses NodeJS and yarn (npm). 
+
 Node - 6.11.4
+
 Yarn - 1.2.1
 
 Run `yarn install`
@@ -33,8 +37,7 @@ Run `yarn install`
 To run the program from anywhere on the filesystem, you need to create a symbolic link in a directory found on $PATH.
 To see the directories that you computer uses to save executable binaries, type `$PATH`. Use one of these directories to save the symbolic link to.
 eg. `ln -s ./zedpack.js /usr/local/bin/zedpack`
-This saves a link to zedpack.js called simply 'zedpack' in /usr/local/bin
-
+This saves a link called zedpack in /usr/local/bin that points to zedpack.js
 ### Sample input/output
 
 Input HTML
@@ -60,7 +63,7 @@ Input HTML
 
 Output HTML
 
-*note the change from <link> to <style>*
+*note the change from <\link> to <style>*
 
 ```
 <!DOCTYPE html>
