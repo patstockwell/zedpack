@@ -40,6 +40,19 @@ To run the program from anywhere on the filesystem by calling just `zedpack`, yo
 To see the directories that you computer uses to run executable binaries, type `$PATH`. Use one of these directories to save the symbolic link to.
 eg. `ln -s ./zedpack.js /usr/local/bin/zedpack`
 This saves a link called zedpack in /usr/local/bin that points to zedpack.js
+
+### Flags
+
+`--css` the css file used for input
+
+`--js` the javascript file used for input
+
+`--html` the html file used for input
+
+`--output` the file to write the resulting html document
+
+All flags are optional. Without the `--html` flag present, nothing will happen.
+
 ### Sample input/output
 
 Input HTML
