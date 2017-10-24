@@ -96,3 +96,11 @@ console.log("I've been loaded. Jolly good.")
 </body>
 </html>
 ```
+
+### Development
+
+A list of features and ideas to be added:
+
+* A `--help` flag for commandline support
+* support for multiple files of the same kind
+* Improve project deployment for global use without configuration
