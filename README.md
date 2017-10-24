@@ -2,27 +2,10 @@
 
 ### Description
 
-This project addresses a specific development situation involving an html file, a javascript file, and a css file. Whether it's for network speed reasons, or CMS restriction reasons, sometimes, you need to deliver your content as one file, not many. In this situation, you can work with one file the whole time, or work with seperate files and manually combine them when deploying. Zedpack streamlines the process of combining the files so you can keep working in a modular fashion. This command line utility takes as input an html file, a css file, and a javascript file, and outputs a new combined html file.
-It works by looking through each line of the html and finding instances of the given css and js filenames. It removes those lines and replaces them with new tags filled with the given files' contents. 
-If the output flag is not used, the result is passed to stdout
+This project addresses the problem of manually creating standalone html documents without linked CSS and JS files. Whether it's for network speed reasons, or CMS restriction reasons, sometimes, you need to deliver your content as one file, not many. During development, you can choose to work with the one file the whole time, or more conveniently, work with seperate files but manually combine them when deploying. Zedpack streamlines the process of combining the files so you can keep working in a modular fashion. This command line utility takes as input an html file, a css file, and a javascript file, and outputs a new combined html file.
 
-### Usage examples
-
-`zedpack --css ./style.css --js ./javascript/script.js --html ./index.html --output compiled.html`
-
-`zedpack --js ./script.js --html ./index.html` 
-
-`zedpack --html ./index.html --output ./build/app.html --js ./app.js` 
-
-### Bugs
-
-If more than one css or js flag is passed as an argument, only the first will be recognised. The next version of this project will include support for multiple files of the same type. 
-
-
-### Author
-
-Patrick Stockwell
-stockwellpatrick@gmail.com
+It works by looking through each line of the html and finding instances of the given CSS and JS filenames. It removes those lines and replaces them with new tags filled with the given files' contents. 
+If the output flag is not used, the result is passed to stdout.
 
 ### Getting Started
 
@@ -41,6 +24,14 @@ To see the directories that you computer uses to run executable binaries, type `
 eg. `ln -s ./zedpack.js /usr/local/bin/zedpack`
 This saves a link called zedpack in /usr/local/bin that points to zedpack.js
 
+### Usage examples
+
+`zedpack --css ./style.css --js ./javascript/script.js --html ./index.html --output compiled.html`
+
+`zedpack --js ./script.js --html ./index.html` 
+
+`zedpack --html ./index.html --output ./build/app.html --js ./app.js` 
+
 ### Flags
 
 `--css` the css file used for input
@@ -53,11 +44,21 @@ This saves a link called zedpack in /usr/local/bin that points to zedpack.js
 
 All flags are optional. Without the `--html` flag present, nothing will happen.
 
+### Bugs
+
+If more than one `--css` or `--js` flag is passed as an argument, only the first will be recognised. The next version of this project will include support for multiple files of the same type. 
+
+
+### Author
+
+Patrick Stockwell
+stockwellpatrick@gmail.com
+
 ### Sample input/output
 
 Input HTML
 
-*note the <\link> tag and the <script> tag*
+*note the < link> tag and the <script> tag*
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +79,7 @@ Input HTML
 
 Output HTML
 
-*note the change from <\link> to <style>*
+*note the change from < link> to <style>*
 
 ```
 <!DOCTYPE html>
