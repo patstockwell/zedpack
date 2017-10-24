@@ -34,3 +34,60 @@ To run the program from anywhere on the filesystem, you need to create a symboli
 To see the directories that you computer uses to save executable binaries, type `$PATH`. Use one of these directories to save the symbolic link to.
 eg. `ln -s ./zedpack.js /usr/local/bin/zedpack`
 This saves a link to zedpack.js called simply 'zedpack' in /usr/local/bin
+
+### Sample input/output
+
+Input HTML
+
+*note the <link> tag and the <script> tag*
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zedpack test document</title>
+    <link rel="stylesheet" href="./style.css"></link>
+</head>
+<body>
+    <h1 class="heading">Here is the Heading</h1> 
+    <p class="paragraph">Here is the main body. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam sequi ratione illo facere, eligendi quidem sit animi, nam excepturi nulla voluptatibus recusandae voluptatem quas, aliquid nisi! Aspernatur iure porro voluptatibus!</p>
+    <script src="./script.js"></script>
+</body>
+</html>
+```
+
+Output HTML
+
+*note the change from <link> to <style>*
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zedpack test document</title>
+<style>
+.heading {
+    color: red;
+    text-decoration: underline;
+}
+
+.paragraph {
+    color: blue;
+    border: 3px solid green;
+}
+</style>
+</head>
+<body>
+    <h1 class="heading">Here is the Heading</h1> 
+    <p class="paragraph">Here is the main body. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam sequi ratione illo facere, eligendi quidem sit animi, nam excepturi nulla voluptatibus recusandae voluptatem quas, aliquid nisi! Aspernatur iure porro voluptatibus!</p>
+<script>
+console.log("I've been loaded. Jolly good.")
+</script>
+</body>
+</html>
+```
