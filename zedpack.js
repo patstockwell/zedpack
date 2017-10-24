@@ -34,7 +34,21 @@ function createOutput() {
             htmlLines[x] = `<script>${strings.js}</script>`
         }
     }
-    console.log(htmlLines.join('\n'))
+    if(argv.output) {
+        writeToFile(htmlLines)
+    }
+    else {
+        console.log(htmlLines.join('\n'))
+    }
+}
+
+function writeToFile(data) {
+	fs.writeFile(argv.output, data.join('\n'), function (err) {
+        if (err) {
+			throw err
+			console.log('Could not write to file. Try another filename, or leave out the filename and pipe from stdout')
+		}
+    })
 }
 
 function getTextFromFile(filename, nextFunction, string) {
