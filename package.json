@@ -9,6 +9,6 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "eslint": "^4.9.0"
+    "jshint": "^2.9.5"
   }
 }
