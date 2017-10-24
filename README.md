@@ -112,8 +112,10 @@ console.log("I've been loaded. Jolly good.")
 
 ### Development
 
-A list of features and ideas to be added:
+Some features and ideas to be added for subsequent iterations
 
 * A `--help` flag for commandline support
 * support for multiple files of the same kind
 * Improve project deployment for global use without configuration
+* Add a `--watch` command so the process can run and reload on file changes
+
