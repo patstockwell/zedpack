@@ -44,7 +44,7 @@ This saves a link called zedpack in /usr/local/bin that points to zedpack.js
 
 Input HTML
 
-*note the </link> tag and the <script> tag*
+*note the <\link> tag and the <script> tag*
 ```
 <!DOCTYPE html>
 <html lang="en">
