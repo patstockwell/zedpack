@@ -34,15 +34,17 @@ Yarn - 1.2.1
 
 Run `yarn install`
 
-To run the program from anywhere on the filesystem, you need to create a symbolic link in a directory found on $PATH.
-To see the directories that you computer uses to save executable binaries, type `$PATH`. Use one of these directories to save the symbolic link to.
+To start, run `./zedpack.js` from the project folder.
+
+To run the program from anywhere on the filesystem by calling just `zedpack`, you need to create a symbolic link in a directory found on $PATH.
+To see the directories that you computer uses to run executable binaries, type `$PATH`. Use one of these directories to save the symbolic link to.
 eg. `ln -s ./zedpack.js /usr/local/bin/zedpack`
 This saves a link called zedpack in /usr/local/bin that points to zedpack.js
 ### Sample input/output
 
 Input HTML
 
-*note the <link> tag and the <script> tag*
+*note the </link> tag and the <script> tag*
 ```
 <!DOCTYPE html>
 <html lang="en">
