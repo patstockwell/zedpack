@@ -14,6 +14,8 @@ If the output flag is not used, the result is passed to stdout
 
 `zedpack --html ./index.html --output ./build/app.html --js ./app.js` 
 
+`./zedpack.js --css build-parts/style.css --js ./build-parts/script.js --html build-parts/index.html --output build-parts/compiled.html`
+
 ### Bugs
 
 If more than one css or js flag is passed as an argument, only the first will be recognised. The next version of this project will include support for multiple files of the same type. 
