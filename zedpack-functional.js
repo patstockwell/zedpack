@@ -2,38 +2,31 @@
 const R = require('ramda')
 const argv = require('minimist')(process.argv.slice(2))
 const fs = require('fs')
-const Future = require('fluture');
-const Task = require('data.task')
+const Future = require('fluture')
 
-// const readFile = Future.of(function (done) { fs.readFile(file, 'utf8', done) })
+const getFileContents = file => (Future.node(done => { fs.readFile(file, 'utf8', done) }))
+const writeFile = contents => (fs.writeFile(argv.output, contents, writeFileSuccess))
 
-// var getPackageName = function (file) {
-//     return Future.node(function (done) { fs.readFile(file, 'utf8', done) })
-//         .chain(Future.encase(JSON.parse))
-//         .map(function (x) { return x.name });
-// };
-
-// getPackageName('package.json')
-//     .fork(console.error, console.log);
-
-var readFile = function (filename) {
-    return Task.of(function (reject, result) {
-        fs.readFile(filename, 'utf-8', function (err, data) {
-            err ? reject(err) : result(data);
-        });
-    });
-};
-
-const readMeta = readFile('package.json')
-
-readMeta.fork(
-    error => { console.log(error, 'error') },
-    page => { console.log(R.map(page), 'no error') }
+const noFileFound = x => {}
+const writeFileSuccess = err => err ? (
+    console.log('Could not write to file.')
+) : (
+    console.log('jolly good, all saved.')
 )
-// const readFile
-// const writeFile
 
-// // create output
+const getCss = getFileContents(argv.css)
+const getJs = getFileContents(argv.js)
+const getHtml = getFileContents(argv.html)
+
+const createOutput = R.curry((fileName, content) => {
+    fileName ? writeFile(content) : console.log(content)
+})
+
+const outputWith = createOutput(argv.output)
+
+getCss.fork(noFileFound, outputWith)
+
+// // // create output
 
 // const split
 // const findTag = filter(regex)
