@@ -8,7 +8,8 @@
   "dependencies": {
     "fluture": "^7.2.2",
     "minimist": "^1.2.0",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "sanctuary": "^0.14.0"
   },
   "devDependencies": {
     "jshint": "^2.9.5"
