@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-const R = require('ramda')
+const S = require('sanctuary')
 const argv = require('minimist')(process.argv.slice(2))
 const fs = require('fs')
 const Future = require('fluture')
@@ -14,17 +14,17 @@ const writeFileSuccess = err => err ? (
     console.log('jolly good, all saved.')
 )
 
-const getCss = getFileContents(argv.css)
-const getJs = getFileContents(argv.js)
-const getHtml = getFileContents(argv.html)
+const getCss = getFileContents(argv.css ? argv.css : '')
+const getJs = getFileContents(argv.js ? argv.js : '')
+const getHtml = getFileContents(argv.html ? argv.html : '')
 
-const createOutput = R.curry((fileName, content) => {
-    fileName ? writeFile(content) : console.log(content)
-})
+// A function which knows what kind of output is expected
+const createOutput = argv.output ? x => writeFile(x) : x => console.log(x)
 
-const outputWith = createOutput(argv.output)
-
-getCss.fork(noFileFound, outputWith)
+// Wraps Futures in an 'Either' type
+const stabalizedFutures = [getCss, getJs, getHtml].map(Future.fold(S.Left, S.Right));
+// Runs all Futures in parallel 
+Future.parallel(3, stabalizedFutures).fork(createOutput, createOutput);
 
 // // // create output
 
